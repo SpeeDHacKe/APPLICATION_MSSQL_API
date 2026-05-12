@@ -1,0 +1,28 @@
+﻿@model APPLICATION_MSSQL_API.Models.IndexModel
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index - @Model.AssemblyName</title>
+</head>
+<body>
+	<div class="container body-content">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+			<p style="color:black;font-family:Calibri;font-size:medium">@String.Format("IP: {0}", Model.IP)</p>
+			<p style="color:black;font-family:Calibri;font-size:medium">@String.Format("Name: {0}({1})", Model.AssemblyName, Model.AspNetCoreEnvironment)</p>
+			<p style="color:black;font-family:Calibri;font-size:medium">@String.Format("Environment: {0})", Model.AspNetCoreEnvironment)</p>
+			<p style="color:black;font-family:Calibri;font-size:medium">@String.Format("Version: {0} ({1})", Model.AssemblyVersion, Model.DateModified)</p>
+		</div>
+		<hr />
+		<footer>
+			<p>&copy; @DateTime.Now.ToString("yyyy", new System.Globalization.CultureInfo("en-EN", false)) - @Model.AssemblyName [.Net Version: @Environment.Version.ToString()]</p>
+		</footer>
+	</div>
+</body>
+</html>
