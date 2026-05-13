@@ -16,20 +16,6 @@ namespace APPLICATION_MSSQL_API.Controllers
             _sv = sv;
         }
 
-        [HttpGet("LoadData", Name = "LoadData")]
-        public async Task<IActionResult> LoadData()
-        {
-            try
-            {
-                var returnResponse = await _sv.GetListIT();
-                return await Task.FromResult(Ok(returnResponse.data));
-            }
-            catch (Exception ex)
-            {
-                return await Task.FromResult(BadRequest(ex));
-            }
-        }
-
         [HttpGet("GetListIT", Name = "GetListIT")]
         public async Task<IActionResult> GetListIT()
         {

@@ -18,7 +18,7 @@ namespace APPLICATION_MSSQL_API.Services
             var response = new ResponseModel();
             try
             {
-                var strCommand = @$"SELECT * FROM TSH_Payroll.dbo.tb_Approval";
+                var strCommand = @$"SELECT * FROM tb_Approval";
                 var result = await _dc.Get<List<ITModel>>(strCommand, CommandType.Text);
                 if (result.success || result.message.Contains("Data not found"))
                 {
@@ -48,7 +48,7 @@ namespace APPLICATION_MSSQL_API.Services
                 var statusCase = string.Join(" ", reqData.Select(x => $"WHEN {x.id} THEN '{x.status}'"));
                 var ids = string.Join(",", reqData.Select(x => x.id));
 
-                var strQuery = $@"UPDATE dbo.tb_Approval
+                var strQuery = $@"UPDATE tb_Approval
                                     SET
                                         reason = CASE id
                                             {reasonCase}
